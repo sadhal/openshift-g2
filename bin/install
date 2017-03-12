@@ -1,0 +1,7 @@
+#!/bin/bash
+
+yum -y update
+yum -y groups install "GNOME Desktop"
+yum -y install epel-release git docker
+systemctl set-default graphical.target
+systemctl enable docker

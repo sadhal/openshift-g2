@@ -1,7 +1,29 @@
 #!/bin/bash
 
+if [ $(id -u) != 0 ]; then
+   echo "This script requires root permissions"
+   sudo "$0" "$@"
+   exit
+fi
+
+# https://github.com/pjos/openshift-wiki/wiki
+MINISHIFT_VER=v1.0.0-beta.4
+DM_VER=v0.10.0
+DM_KVM_VER=v0.8.2
+
 yum -y update
 yum -y groups install "GNOME Desktop"
 yum -y install epel-release git docker
 systemctl set-default graphical.target
 systemctl enable docker
+
+wget -qO- https://github.com/minishift/minishift/releases/download/$MINISHIFT_VER/minishift-$MINISHIFT_VER-linux-amd64.tgz | tar zxf - -C /usr/local/bin minishift
+chown root:root /usr/local/bin/minishift
+chmod +x /usr/local/bin/minishift
+
+curl -L https://github.com/docker/machine/releases/download/$DM_VER/docker-machine-`uname -s`-`uname -m` > /usr/local/bin/docker-machine && \
+chmod +x /usr/local/bin/docker-machine
+
+curl -L https://github.com/dhiltgen/docker-machine-kvm/releases/download/$DM_KVM_VER/docker-machine-driver-kvm > /usr/local/bin/docker-machine-driver-kvm && \
+chmod +x /usr/local/bin/docker-machine-driver-kvm
+

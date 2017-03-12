@@ -56,6 +56,23 @@ chmod +x /usr/local/bin/oc
 chown root:root /usr/local/bin/oc
 rmdir /tmp/$OC_DIR
 
+# Allow minishift to spin up a VM without anoing authorization questions
+# https://superuser.com/questions/548433/how-do-i-prevent-virt-manager-from-asking-for-the-root-password
+cat > /etc/polkit-1/rules.d/10.virt.rules <<EOF
+polkit.addRule(function(action, subject) {
+    if (action.id == "org.libvirt.unix.manage"
+            && subject.local
+            && subject.active
+            && subject.isInGroup("libvirt")) {
+        return polkit.Result.YES;
+    }
+});
+EOF
+
+systemctl restart polkit
+
+
+
 echo 
 echo "*** DONE ***"
 echo "minishift start --cpus 2 --memory 8192 --openshift-version=v1.5.0-rc.0"

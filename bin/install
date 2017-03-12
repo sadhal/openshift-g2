@@ -7,7 +7,7 @@ if [ $(id -u) != 0 ]; then
 fi
 
 # https://github.com/pjos/openshift-wiki/wiki
-MINISHIFT_VER=v1.0.0-beta.4
+MINISHIFT_VER=1.0.0-beta.4
 DM_VER=v0.10.0
 DM_KVM_VER=v0.8.2
 
@@ -17,7 +17,7 @@ yum -y install epel-release git docker
 systemctl set-default graphical.target
 systemctl enable docker
 
-wget -qO- https://github.com/minishift/minishift/releases/download/$MINISHIFT_VER/minishift-$MINISHIFT_VER-linux-amd64.tgz | tar zxf - -C /usr/local/bin minishift
+wget -qO- https://github.com/minishift/minishift/releases/download/v$MINISHIFT_VER/minishift-$MINISHIFT_VER-linux-amd64.tgz | tar zxf - -C /usr/local/bin minishift
 chown root:root /usr/local/bin/minishift
 chmod +x /usr/local/bin/minishift
 

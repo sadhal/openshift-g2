@@ -70,7 +70,7 @@ polkit.addRule(function(action, subject) {
 EOF
 
 systemctl restart polkit
-usermod -G libvirt $SUDO_USER 
+usermod -a -G libvirt $SUDO_USER 
 
 
 echo 

@@ -72,6 +72,9 @@ EOF
 systemctl restart polkit
 usermod -a -G libvirt $SUDO_USER 
 
+grep "^INSECURE" /etc/sysconfig/docker > /dev/null || \
+  { echo "INSECURE_REGISTRY='--insecure-registry 172.30.0.0/16'" >> /etc/sysconfig/docker; \
+    systemctl restart docker; }
 
 echo 
 echo "*** DONE ***"

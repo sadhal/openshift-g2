@@ -8,7 +8,6 @@ fi
 
 # https://github.com/pjos/openshift-g2/wiki
 OC_URL="https://github.com/openshift/origin/releases/download/v1.4.1/openshift-origin-client-tools-v1.4.1-3f9807a-linux-64bit.tar.gz"
-OC_DIR=$(echo `basename $OC_URL` | sed s,.tar.gz,,)
 
 echo 
 echo "*** Insatlling yum components ***"

@@ -31,12 +31,13 @@ systemctl disable libvirtd
 
 
 # Download and install OC client
-wget -qO- $OC_URL | tar zxvf - -C /tmp $OC_DIR/oc
-mv -f /tmp/$OC_DIR/oc /usr/local/bin
+wget -qO- $OC_URL | tar zxvf - -C /tmp
+mv -f /tmp/openshift-origin-client-tools*/oc /usr/local/bin
 chmod +x /usr/local/bin/oc
 chown root:root /usr/local/bin/oc
-rmdir /tmp/$OC_DIR
-ln -s /usr/local/bin/oc /usr/bin/oc
+rm -rf /tmp/openshift-origin-client-tools*
+test -h /usr/bin/oc || ln -s /usr/local/bin/oc /usr/bin/oc
+
 
 echo "ENTER to rebbot, ^C to abort...." 
 read

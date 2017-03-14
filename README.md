@@ -10,4 +10,13 @@ sudo openshift-g2/bin/install-oc-env
 
 ```shell:
 sudo oc cluster up
+...
+   You are logged in as:
+       User:     developer
+       Password: developer
+
+   To login as administrator:
+       oc login -u system:admin
+...
+sudo iptables --flush
 ```

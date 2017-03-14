@@ -39,5 +39,6 @@ rmdir /tmp/$OC_DIR
 ln -s /usr/local/bin/oc /usr/bin/oc
 
 echo "ENTER to rebbot, ^C to abort...." 
+read
 reboot
 

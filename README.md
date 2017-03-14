@@ -1,5 +1,5 @@
 # openshift-g2
-### Base is CentOS 7 minimal installation  
+### The base is a CentOS 7 minimal installation  
 ```shell:
 sudo yum -y install git
 git clone https://github.com/pjos/openshift-g2.git
@@ -8,4 +8,6 @@ sudo openshift-g2/bin/install-oc-env
 
 ### Start local OpenShift cluster
 
-`sudo oc cluster up`
+```shell:
+sudo oc cluster up
+```

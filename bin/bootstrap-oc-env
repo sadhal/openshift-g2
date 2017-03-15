@@ -50,10 +50,10 @@ cat > /etc/profile.d/java.sh <<EOF
 #-------------------------------------------
 # Provide profile script to set up Gradle  environment
 #-------------------------------------------
-[[ -z "$JAVA_HOME" ]] && export JAVA_HOME=/opt/jdk
-[[ -z "$JRE_HOME" ]] && export JRE_HOME=/opt/jdk/jre
-[[ $PATH != ?(*:)/opt/jdk/bin?(:*) ]]  && export PATH=/opt/jdk/bin:$PATH
-[[ $PATH != ?(*:)/opt/jdk/jre/bin?(:*) ]]  && export PATH=/opt/jdk/jre/bin:$PATH
+[[ -z "\$JAVA_HOME" ]] && export JAVA_HOME=/opt/jdk
+[[ -z "\$JRE_HOME" ]] && export JRE_HOME=/opt/jdk/jre
+[[ \$PATH != ?(*:)/opt/jdk/bin?(:*) ]]  && export PATH=/opt/jdk/bin:$PATH
+[[ \$PATH != ?(*:)/opt/jdk/jre/bin?(:*) ]]  && export PATH=/opt/jdk/jre/bin:$PATH
 EOF
 
 

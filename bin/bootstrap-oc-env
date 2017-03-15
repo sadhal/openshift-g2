@@ -39,10 +39,11 @@ rm -rf /tmp/openshift-origin-client-tools*
 test -h /usr/bin/oc || ln -s /usr/local/bin/oc /usr/bin/oc
 
 #Download JDK 8
-wget --no-cookies --no-check-certificate --header \
+test -d /opt/jdk1.8.0_121 || \
+  wget -qO- --no-cookies --no-check-certificate --header \
   "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" \
   "http://download.oracle.com/otn-pub/java/jdk/8u121-b13/e9e7ea248e2c4826b92b3f075a80e441/jdk-8u121-linux-x64.tar.gz" | \
-   tar zxvf - -C /opt
+   tar zxf - -C /opt
 
 echo "You need to reboot your system if this is an initial bootstrap:"
 echo "sudo reboot"

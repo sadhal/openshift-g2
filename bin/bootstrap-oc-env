@@ -44,6 +44,18 @@ test -d /opt/jdk1.8.0_121 || \
   "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" \
   "http://download.oracle.com/otn-pub/java/jdk/8u121-b13/e9e7ea248e2c4826b92b3f075a80e441/jdk-8u121-linux-x64.tar.gz" | \
    tar zxf - -C /opt
+ln -s /opt/jdk1.8.0_121 /opt/jdk
+
+cat > /etc/profile.d/java.sh <<EOF
+#-------------------------------------------
+# Provide profile script to set up Gradle  environment
+#-------------------------------------------
+[[ -z "$JAVA_HOME" ]] && export JAVA_HOME=/opt/jdk
+[[ -z "$JRE_HOME" ]] && export JRE_HOME=/opt/jdk/jre
+[[ $PATH != ?(*:)/opt/jdk/bin?(:*) ]]  && export PATH=/opt/jdk/bin:$PATH
+[[ $PATH != ?(*:)/opt/jdk/jre/bin?(:*) ]]  && export PATH=/opt/jdk/jre/bin:$PATH
+EOF
+
 
 echo "You need to reboot your system if this is an initial bootstrap:"
 echo "sudo reboot"

@@ -38,7 +38,6 @@ rm -rf /tmp/openshift-origin-client-tools*
 test -h /usr/bin/oc || ln -s /usr/local/bin/oc /usr/bin/oc
 
 
-echo "Press ENTER to rebbot, ^C to abort...." 
-read
-reboot
-
+echo "You need to reboot your system if this is an initial bootstrap:"
+echo "sudo reboot"
+echo

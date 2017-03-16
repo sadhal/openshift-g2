@@ -65,6 +65,8 @@ polkit.addRule(function(action, subject) {
             && subject.active
             && subject.isInGroup("libvirt")) {
         return polkit.Result.YES;
+        polkit.log("action=" + action);
+        polkit.log("subject=" + subject);
     }
 });
 EOF

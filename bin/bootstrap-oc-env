@@ -53,6 +53,9 @@ test -d /opt/jdk1.8.0_121 || \
    tar zxf - -C /opt
 ln -sfn /opt/jdk1.8.0_121 /opt/jdk
 
+#Download IntelliJ
+#wget -qO- https://download.jetbrains.com/idea/ideaIC-2016.3.5.tar.gz
+
 cat > /etc/profile.d/java.sh <<EOF
 #-------------------------------------------
 # Provide profile script to set up Gradle  environment

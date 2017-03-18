@@ -56,6 +56,9 @@ chmod +x /usr/local/bin/oc
 chown root:root /usr/local/bin/oc
 rmdir /tmp/$OC_DIR
 
+# Install virt components
+yum install -y qemu-kvm qemu-img virt-manager libvirt libvirt-python libvirt-client virt-install virt-viewer
+
 # Allow minishift to spin up a VM without anoing authorization questions
 # https://superuser.com/questions/548433/how-do-i-prevent-virt-manager-from-asking-for-the-root-password
 cat > /etc/polkit-1/rules.d/10.virt.rules <<EOF

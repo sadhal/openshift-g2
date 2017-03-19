@@ -7,7 +7,7 @@ if [ $(id -u) != 0 ]; then
 fi
 
 # https://github.com/pjos/openshift-wiki/wiki
-MINISHIFT_VER=1.0.0-beta.4
+MINISHIFT_VER=1.0.0-beta.5
 DM_VER=v0.10.0
 DM_KVM_VER=v0.8.2
 OC_URL="https://github.com/openshift/origin/releases/download/v1.5.0-rc.0/openshift-origin-client-tools-v1.5.0-rc.0-49a4a7a-linux-64bit.tar.gz"

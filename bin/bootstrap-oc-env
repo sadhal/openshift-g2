@@ -27,15 +27,15 @@ yum -y install epel-release git docker
 systemctl set-default graphical.target
 
 
-# Install Docker CE for CentOS
-# https://docs.docker.com/engine/installation/linux/centos/
-
-
 # configure docker
 systemctl enable docker
 grep "^INSECURE" /etc/sysconfig/docker > /dev/null || \
   { echo "INSECURE_REGISTRY='--insecure-registry 172.30.0.0/16'" >> /etc/sysconfig/docker; \
     systemctl restart docker; }
+
+# Allow non-root docker operations
+groupadd docker
+usermod -aG docker $SUDO_USER
 
 # Disable libvirtd, otherwise oc won't be abel to bind it self to 53/tcp/udp  
 systemctl stop libvirtd

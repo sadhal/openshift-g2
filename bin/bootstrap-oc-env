@@ -26,6 +26,11 @@ yum -y groups install "GNOME Desktop"
 yum -y install epel-release git docker
 systemctl set-default graphical.target
 
+
+# Install Docker CE for CentOS
+# https://docs.docker.com/engine/installation/linux/centos/
+
+
 # configure docker
 systemctl enable docker
 grep "^INSECURE" /etc/sysconfig/docker > /dev/null || \
@@ -66,7 +71,7 @@ cat > /etc/profile.d/java.sh <<EOF
 [[ \$PATH != ?(*:)/opt/jdk/jre/bin?(:*) ]]  && export PATH=/opt/jdk/jre/bin:\$PATH
 EOF
 
-# INstall Google Chrome
+# Install Google Chrome
 # http://www.tecmint.com/install-google-chrome-on-redhat-centos-fedora-linux/
 cat > /etc/yum.repos.d/google-chrome.repo <<EOF
 [google-chrome]

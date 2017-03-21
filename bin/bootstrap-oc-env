@@ -50,6 +50,10 @@ chown root:root /usr/local/bin/oc
 rm -rf /tmp/openshift-origin-client-tools*
 test -h /usr/bin/oc || ln -s /usr/local/bin/oc /usr/bin/oc
 
+# https://github.com/openshift/origin/issues/10139#issuecomment-270503837
+# "oc cluster up" will not start properly without this.
+firewall-cmd --permanent --add-port=8443/tcp --add-port=53/udp
+
 #Download JDK 8
 test -d /opt/jdk1.8.0_121 || \
   wget -qO- --no-cookies --no-check-certificate --header \

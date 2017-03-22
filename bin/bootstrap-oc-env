@@ -77,18 +77,9 @@ EOF
 
 # Install Google Chrome
 # http://www.tecmint.com/install-google-chrome-on-redhat-centos-fedora-linux/
-cat > /etc/yum.repos.d/google-chrome.repo <<EOF
-[google-chrome]
-name=google-chrome
-baseurl=http://dl.google.com/linux/chrome/rpm/stable/$basearch
-enabled=1
-gpgcheck=1
-gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub
-EOF
-wget http://chrome.richardlloyd.org.uk/install_chrome.sh
+wget http://chrome.richardlloyd.org.uk/install_chrome.sh > /dev/null
 chmod +x install_chrome.sh
 mv install_chrome.sh /usr/local/bin
-# /usr/local/bin/install_chrome.sh -f
 
 echo "You need to reboot your system if this is an initial bootstrap:"
 echo "sudo reboot"

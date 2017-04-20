@@ -14,8 +14,8 @@ if [ $(id -u) != 0 ]; then
 fi
 
 # https://github.com/pjos/openshift-g2/wiki
-OC_URL="https://github.com/openshift/origin/releases/download/v1.4.1/openshift-origin-client-tools-v1.4.1-3f9807a-linux-64bit.tar.gz"
-
+#OC_URL="https://github.com/openshift/origin/releases/download/v1.4.1/openshift-origin-client-tools-v1.4.1-3f9807a-linux-64bit.tar.gz"
+OC_URL="https://github.com/openshift/origin/releases/download/v1.5.0-rc.0/openshift-origin-client-tools-v1.5.0-rc.0-49a4a7a-linux-64bit.tar.gz"
 
 echo 
 echo "*** Insatlling yum components ***"
